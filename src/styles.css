@@ -1,0 +1,182 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'IM Fell English', Georgia, serif;
+  color: #3b2c1f;
+  background: #d9c9a0;
+}
+
+.app {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* ---- Canvas ---- */
+.canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  touch-action: none; /* let pointer drags work without page scrolling */
+  cursor: grab;
+}
+
+.town-label {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 16px;
+  fill: #3b2c1f;
+  paint-order: stroke;
+  stroke: #ece3c8;
+  stroke-width: 3px;
+  stroke-linejoin: round;
+  pointer-events: none;
+  user-select: none;
+}
+
+.region-label {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: 2px;
+  fill: #4b3a26;
+  opacity: 0.75;
+  paint-order: stroke;
+  stroke: #ece3c8;
+  stroke-width: 3px;
+  stroke-linejoin: round;
+  pointer-events: none;
+  user-select: none;
+}
+
+.handle {
+  fill: #fff;
+  stroke: #9c6b2f;
+  stroke-width: 2px;
+  cursor: move;
+}
+
+/* ---- Toolbar ---- */
+.toolbar {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  padding: 10px 14px;
+  background: rgba(244, 236, 214, 0.94);
+  border: 1px solid #b9a273;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(60, 44, 31, 0.25);
+  backdrop-filter: blur(2px);
+}
+
+.brand {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: #5b4636;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.brand-mark {
+  font-size: 20px;
+  color: #9c6b2f;
+}
+
+.brand-tag {
+  font-family: 'IM Fell English', serif;
+  font-size: 11px;
+  letter-spacing: 1px;
+  background: #9c6b2f;
+  color: #f4ecd6;
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin-left: 4px;
+}
+
+.tool-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 13px;
+  color: #6b5640;
+}
+
+.tool-btn {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  padding: 6px 11px;
+  border: 1px solid #b9a273;
+  border-radius: 7px;
+  background: #efe6cb;
+  color: #4b3a26;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.tool-btn:hover:not(:disabled) {
+  background: #e4d5ac;
+}
+
+.tool-btn.active {
+  background: #9c6b2f;
+  border-color: #7d5320;
+  color: #f8f1da;
+}
+
+.tool-btn.primary {
+  background: #5a7d3a;
+  border-color: #466029;
+  color: #f4ecd6;
+}
+
+.tool-btn.danger {
+  border-color: #b5734f;
+  color: #8a3f1f;
+}
+
+.tool-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+select {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  padding: 5px 8px;
+  border: 1px solid #b9a273;
+  border-radius: 7px;
+  background: #efe6cb;
+  color: #4b3a26;
+}
+
+.hint {
+  flex-basis: 100%;
+  font-size: 14px;
+  color: #6b5640;
+  font-style: italic;
+  border-top: 1px dashed #c4ad7e;
+  padding-top: 7px;
+}
